@@ -8,7 +8,7 @@ import { PHONE, PHONE_HREF, CDN } from "@/lib/constants";
 
 // SEO: mirrors original /windows/ page
 const PAGE_TITLE = "Window Replacement & Installation | Precise Windows & Doors";
-const PAGE_DESC = "Expert window replacement and installation in Westchester County, NY. Double-hung, casement, bay & bow, sliding, picture windows. Free in-home estimates. Call (914) 665-0840.";
+const PAGE_DESC = "Expert window replacement and installation in Westchester County, NY. Double-hung, casement, bay & bow, sliding, picture, awning, skylight, egress, garden, hopper, transom, tilt-turn windows. Free in-home estimates. Call (914) 665-0840.";
 
 function RevealSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -36,37 +36,120 @@ const windowTypes = [
     name: "Double-Hung Windows",
     desc: "The most popular window style — both the upper and lower sashes slide up and down for maximum ventilation and easy cleaning. Perfect for any room in your home.",
     features: ["Easy to clean from inside", "Excellent ventilation control", "Classic appearance", "Available in all sizes"],
-    img: CDN.hero1,
+    img: "/images/double-hung-window.jpg",
+    fallback: CDN.hero1,
+  },
+  {
+    name: "Single-Hung Windows",
+    desc: "Feature a fixed top sash and a movable bottom sash, providing efficient ventilation and easy operation. Ideal for both traditional and modern homes.",
+    features: ["Classic look", "Energy efficient", "Easy to operate", "Durable construction"],
+    img: "/images/single-hung-window.jpg",
+    fallback: CDN.hero1,
   },
   {
     name: "Casement Windows",
     desc: "Hinged at the side and opening outward with a crank, casement windows provide unobstructed views and excellent airflow. Ideal for hard-to-reach areas.",
     features: ["Superior ventilation", "Unobstructed views", "Tight seal when closed", "Energy efficient"],
-    img: CDN.womanPanoramicWindows,
+    img: "/images/casement-window.jpg",
+    fallback: CDN.womanPanoramicWindows,
   },
   {
-    name: "Bay & Bow Windows",
-    desc: "Projecting outward from the wall, bay and bow windows create a stunning architectural feature that adds space, light, and character to any room.",
+    name: "Awning Windows",
+    desc: "Hinged at the top and opening outward from the bottom, awning windows allow ventilation even during light rain. Perfect for basements and bathrooms.",
+    features: ["Ventilate in light rain", "Great for basements", "Excellent seal", "Versatile placement"],
+    img: "/images/awning-window.jpg",
+    fallback: CDN.poolView,
+  },
+  {
+    name: "Bay Windows",
+    desc: "Projecting outward from the wall, bay windows create a stunning architectural feature that adds space, light, and character to any room.",
     features: ["Creates extra interior space", "Panoramic views", "Architectural elegance", "Floods rooms with light"],
     img: CDN.windowsBay,
+    fallback: CDN.windowsBay,
+  },
+  {
+    name: "Bow Windows",
+    desc: "Similar to bay windows, bow windows feature a gentle curve creating a rounded appearance that adds sophistication. Perfect for creating cozy alcoves.",
+    features: ["Elegant curved design", "Expansive views", "Natural light", "Stylish appearance"],
+    img: "/images/bow-window.jpg",
+    fallback: CDN.windowsBay,
   },
   {
     name: "Sliding Windows",
     desc: "Sliding windows glide horizontally on a track — sleek, modern, and easy to operate. Great for wide openings where you want a contemporary look.",
     features: ["Easy to operate", "Wide opening options", "Modern aesthetic", "Low maintenance"],
     img: CDN.livingRoomSlidingDoors,
+    fallback: CDN.livingRoomSlidingDoors,
   },
   {
     name: "Picture Windows",
     desc: "Fixed windows that don't open — designed to frame stunning views and flood your rooms with natural light. Often combined with operable windows.",
     features: ["Maximum light", "Unobstructed views", "Energy efficient", "Dramatic visual impact"],
-    img: CDN.hero2,
+    img: "/images/picture-window.jpg",
+    fallback: CDN.hero2,
   },
   {
-    name: "Awning Windows",
-    desc: "Hinged at the top and opening outward from the bottom, awning windows allow ventilation even during light rain. Perfect for basements and bathrooms.",
-    features: ["Ventilate in light rain", "Great for basements", "Excellent seal", "Versatile placement"],
-    img: CDN.poolView,
+    name: "Skylight Windows",
+    desc: "Bring natural light into your home with skylight windows. Perfect for rooms with limited wall space, brightening interiors while providing energy efficiency.",
+    features: ["Natural overhead light", "Energy efficient", "Ventilation options", "Transforms any room"],
+    img: CDN.skylightInstall,
+    fallback: CDN.skylightInstall,
+  },
+  {
+    name: "Egress Windows",
+    desc: "Ensure safety and style with egress windows. These windows meet building codes for emergency exits and offer easy access and abundant light to basement rooms.",
+    features: ["Meets building codes", "Emergency exit compliant", "Abundant basement light", "Safety & style combined"],
+    img: "/images/egress-window.jpg",
+    fallback: CDN.hero1,
+  },
+  {
+    name: "Garden Windows",
+    desc: "Create a mini-greenhouse in your home with garden windows. These windows extend outward to bring in extra light and offer a beautiful spot for indoor plants.",
+    features: ["Perfect for herbs & plants", "Extra natural light", "Unique design", "Extends outward"],
+    img: "/images/garden-window.jpg",
+    fallback: CDN.hero2,
+  },
+  {
+    name: "Hopper Windows",
+    desc: "Enhance your basement or small spaces with hopper windows. These inward-opening windows provide excellent ventilation and are perfect for areas with limited wall space.",
+    features: ["Ideal for basements", "Inward opening", "Secure design", "Energy efficient"],
+    img: "/images/hopper-window.jpg",
+    fallback: CDN.hero1,
+  },
+  {
+    name: "Tilt & Turn Windows",
+    desc: "Experience European-inspired design with tilt and turn windows. These versatile windows offer dual functionality — tilt inward for ventilation or turn fully open for easy cleaning.",
+    features: ["Dual functionality", "European design", "Easy to clean", "Superior security"],
+    img: "/images/tilt-turn-window.jpg",
+    fallback: CDN.womanPanoramicWindows,
+  },
+  {
+    name: "Transom Windows",
+    desc: "Add elegance and light to your home with transom windows. Positioned above doors or larger windows, they enhance architectural interest and allow natural light to flow in.",
+    features: ["Adds architectural interest", "Natural light flow", "Various shapes available", "Decorative element"],
+    img: "/images/transom-window.jpg",
+    fallback: CDN.hero2,
+  },
+  {
+    name: "Architectural Windows",
+    desc: "Make a bold statement with architectural windows. These custom-designed windows come in various shapes and sizes, adding unique character and style to your home.",
+    features: ["Custom shapes & sizes", "Unique character", "Enhances curb appeal", "Expertly crafted"],
+    img: "/images/architectural-window.jpg",
+    fallback: CDN.womanPanoramicWindows,
+  },
+  {
+    name: "Energy Efficient Windows",
+    desc: "Save on energy bills and enhance your home's comfort with energy-efficient windows. Features high-performance glass and superior insulation to reduce heat loss and gain.",
+    features: ["Reduces energy bills up to 30%", "High-performance glass", "Low-E coatings", "Argon gas fills"],
+    img: "/images/energy-star-window.jpg",
+    fallback: CDN.hero1,
+  },
+  {
+    name: "Custom Windows",
+    desc: "For unique architectural requirements, our custom windows cater to any specification. Every detail is crafted to perfection to match your vision and home's character.",
+    features: ["Any size or shape", "Tailored to your home", "Premium materials", "Expert craftsmanship"],
+    img: "/images/custom-window.jpg",
+    fallback: CDN.womanPanoramicWindows,
   },
 ];
 
@@ -78,6 +161,39 @@ const benefits = [
   { icon: "🌡️", title: "Comfort", desc: "Eliminate drafts and cold spots near windows" },
   { icon: "💰", title: "Home Value", desc: "Window replacement offers one of the best ROI of any home improvement" },
 ];
+
+function WindowCard({ wt, delay }: { wt: typeof windowTypes[0]; delay: number }) {
+  const [imgSrc, setImgSrc] = useState(wt.img);
+  return (
+    <RevealSection delay={delay}>
+      <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
+        <div className="relative h-52 overflow-hidden flex-shrink-0">
+          <img
+            src={imgSrc}
+            alt={wt.name}
+            onError={() => setImgSrc(wt.fallback)}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1B3A5C]/60 to-transparent" />
+          <div className="absolute bottom-4 left-4">
+            <h3 className="text-xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>{wt.name}</h3>
+          </div>
+        </div>
+        <div className="p-6 flex flex-col flex-1">
+          <p className="text-gray-600 leading-relaxed mb-4 flex-1">{wt.desc}</p>
+          <ul className="space-y-1.5">
+            {wt.features.map((f) => (
+              <li key={f} className="flex items-center gap-2 text-sm text-gray-700">
+                <CheckCircle size={13} className="text-[#C9A84C] flex-shrink-0" />
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </RevealSection>
+  );
+}
 
 export default function Windows() {
   useEffect(() => {
@@ -108,7 +224,7 @@ export default function Windows() {
               <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Window Replacement & Installation
               </h1>
-              <p className="text-lg text-white/85 mb-8">
+              <p className="text-base sm:text-lg text-white/85 mb-8">
                 Serving Westchester County, the Bronx, and surrounding New York areas since 1994.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -133,13 +249,13 @@ export default function Windows() {
                 New York's Trusted Window Experts
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                At Precise Windows & Doors, we've been transforming homes throughout Westchester County and the greater New York area for over 30 years. Our expert installation team handles everything from single window replacements to whole-home projects.
+                At Precise Windows & Doors, we offer a wide range of high-quality window types to meet all your home improvement needs. Whether you're looking for energy-efficient double-hung windows, elegant bay windows, or modern sliding windows, we have the perfect solution for you.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
-                We carry top brands including Anderson, Marvin, Pella, and Northeast — all installed with precision and backed by our satisfaction guarantee.
+                We carry top brands including Anderson, Marvin, Pella, and Northeast — all installed with precision and backed by our 5-year workmanship warranty and free in-home estimates.
               </p>
               <div className="grid grid-cols-2 gap-4">
-                {["Licensed & Insured", "Free In-Home Estimates", "30+ Years Experience", "100% Satisfaction"].map((item) => (
+                {["Licensed & Insured", "Free In-Home Estimates", "5-Year Workmanship Warranty", "Quick Installation"].map((item) => (
                   <div key={item} className="flex items-center gap-2 text-[#1B3A5C] font-medium">
                     <CheckCircle size={16} className="text-[#C9A84C] flex-shrink-0" />
                     {item}
@@ -163,7 +279,7 @@ export default function Windows() {
         </div>
       </section>
 
-      {/* Window Types */}
+      {/* Window Types — all 17 */}
       <section className="py-16 md:py-20" style={{ background: "#F0F4F8" }}>
         <div className="container">
           <RevealSection className="text-center mb-14">
@@ -177,28 +293,7 @@ export default function Windows() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {windowTypes.map((wt, i) => (
-              <RevealSection key={wt.name} delay={i * 80}>
-                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
-                  <div className="relative h-52 overflow-hidden">
-                    <img src={wt.img} alt={wt.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1B3A5C]/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4">
-                      <h3 className="text-xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>{wt.name}</h3>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-gray-600 leading-relaxed mb-4">{wt.desc}</p>
-                    <ul className="space-y-1.5">
-                      {wt.features.map((f) => (
-                        <li key={f} className="flex items-center gap-2 text-sm text-gray-700">
-                          <CheckCircle size={13} className="text-[#C9A84C] flex-shrink-0" />
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </RevealSection>
+              <WindowCard key={wt.name} wt={wt} delay={i * 60} />
             ))}
           </div>
         </div>
@@ -261,7 +356,7 @@ export default function Windows() {
                 Get a free in-home estimate from our window experts. We'll measure, recommend the best options for your home, and provide a transparent quote with no pressure.
               </p>
               <div className="space-y-4 mb-8">
-                {["Free in-home measurement & estimate", "Expert product recommendations", "Professional installation by certified team", "Clean worksite — we remove all debris", "Manufacturer & labor warranty"].map((item) => (
+                {["Free in-home measurement & estimate", "Expert product recommendations", "Professional installation by certified team", "Clean worksite — we remove all debris", "5-year workmanship warranty"].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-[#C9A84C]/20 flex items-center justify-center flex-shrink-0">
                       <CheckCircle size={14} className="text-[#C9A84C]" />
