@@ -3,6 +3,12 @@ import { Link, useLocation } from "wouter";
 import { Phone, Menu, X, ChevronRight, ChevronDown } from "lucide-react";
 import { PHONE, PHONE_HREF, CDN } from "@/lib/constants";
 
+// NAV DROPDOWN BEST PRACTICE:
+// - Use a shared timeout ref to delay closing so mouse can travel from trigger → dropdown
+// - Wrap trigger + dropdown in a single container div with onMouseEnter/onMouseLeave
+// - Add an invisible bridge (pt-2 padding on dropdown) to cover the gap between button and menu
+// - Never use separate onMouseLeave on button and dropdown — causes flicker
+
 const serviceLinks = [
   { label: "All Services", href: "/services/" },
   { label: "Windows", href: "/windows/" },
@@ -27,7 +33,17 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [location] = useLocation();
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  // Shared timeout ref — delays closing so mouse can travel from button → dropdown
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openDropdown = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setServicesOpen(true);
+  };
+
+  const scheduleClose = () => {
+    closeTimer.current = setTimeout(() => setServicesOpen(false), 150);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -39,16 +55,6 @@ export default function Navbar() {
     setMobileOpen(false);
     setServicesOpen(false);
   }, [location]);
-
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setServicesOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
 
   const isHome = location === "/";
   const transparent = isHome && !scrolled;
@@ -69,22 +75,31 @@ export default function Navbar() {
               src={CDN.logo}
               alt="Precise Windows and Doors Logo"
               className="h-12 w-auto object-contain rounded-[15px]"
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = "none";
-              }}
+              onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
             />
           </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => {
-              const active = location === link.href || location === link.href.replace(/\/$/, "") || (link.hasDropdown && serviceLinks.some(s => location === s.href || location === s.href.replace(/\/$/, "")));
+              const active =
+                location === link.href ||
+                location === link.href.replace(/\/$/, "") ||
+                (link.hasDropdown && serviceLinks.some(
+                  (s) => location === s.href || location === s.href.replace(/\/$/, "")
+                ));
+
               if (link.hasDropdown) {
                 return (
-                  <div key={link.href} className="relative" ref={dropdownRef}>
+                  // Single wrapper — mouse enter/leave on the whole group
+                  <div
+                    key={link.href}
+                    className="relative"
+                    onMouseEnter={openDropdown}
+                    onMouseLeave={scheduleClose}
+                  >
+                    {/* Trigger button */}
                     <button
-                      onMouseEnter={() => setServicesOpen(true)}
-                      onMouseLeave={() => setServicesOpen(false)}
                       onClick={() => setServicesOpen(!servicesOpen)}
                       className={`flex items-center gap-1 text-sm font-semibold tracking-wide transition-colors duration-200 relative group ${
                         transparent
@@ -95,32 +110,43 @@ export default function Navbar() {
                       }`}
                     >
                       {link.label}
-                      <ChevronDown size={14} className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} />
-                      <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#C9A84C] transition-all duration-200 ${active ? "w-full" : "w-0 group-hover:w-full"}`} />
+                      <ChevronDown
+                        size={14}
+                        className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+                      />
+                      <span
+                        className={`absolute -bottom-1 left-0 h-0.5 bg-[#C9A84C] transition-all duration-200 ${
+                          active ? "w-full" : "w-0 group-hover:w-full"
+                        }`}
+                      />
                     </button>
 
-                    {/* Dropdown */}
+                    {/* Dropdown — pt-3 creates invisible bridge over the gap */}
                     <div
-                      onMouseEnter={() => setServicesOpen(true)}
-                      onMouseLeave={() => setServicesOpen(false)}
-                      className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-200 origin-top ${
-                        servicesOpen ? "opacity-100 scale-y-100 pointer-events-auto" : "opacity-0 scale-y-95 pointer-events-none"
+                      className={`absolute top-full left-0 pt-3 transition-all duration-200 origin-top ${
+                        servicesOpen
+                          ? "opacity-100 scale-y-100 pointer-events-auto"
+                          : "opacity-0 scale-y-95 pointer-events-none"
                       }`}
+                      style={{ minWidth: "220px" }}
                     >
-                      {serviceLinks.map((svc) => (
-                        <Link
-                          key={svc.href}
-                          href={svc.href}
-                          className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 font-medium hover:bg-[#E8F2FA] hover:text-[#1B3A5C] transition-colors border-b border-gray-50 last:border-0"
-                        >
-                          {svc.label}
-                          <ChevronRight size={13} className="text-[#C9A84C]" />
-                        </Link>
-                      ))}
+                      <div className="bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden">
+                        {serviceLinks.map((svc) => (
+                          <Link
+                            key={svc.href}
+                            href={svc.href}
+                            className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 font-medium hover:bg-[#E8F2FA] hover:text-[#1B3A5C] transition-colors border-b border-gray-50 last:border-0"
+                          >
+                            {svc.label}
+                            <ChevronRight size={13} className="text-[#C9A84C]" />
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 );
               }
+
               return (
                 <Link
                   key={link.href}
@@ -134,7 +160,11 @@ export default function Navbar() {
                   }`}
                 >
                   {link.label}
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#C9A84C] transition-all duration-200 ${active ? "w-full" : "w-0 group-hover:w-full"}`} />
+                  <span
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-[#C9A84C] transition-all duration-200 ${
+                      active ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
                 </Link>
               );
             })}
@@ -203,7 +233,12 @@ export default function Navbar() {
                 className="w-full flex items-center justify-between px-6 py-4 text-gray-800 font-semibold hover:bg-[#E8F2FA] hover:text-[#1B3A5C] transition-colors"
               >
                 Services
-                <ChevronDown size={16} className={`text-[#C9A84C] transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} />
+                <ChevronDown
+                  size={16}
+                  className={`text-[#C9A84C] transition-transform duration-200 ${
+                    mobileServicesOpen ? "rotate-180" : ""
+                  }`}
+                />
               </button>
               {mobileServicesOpen && (
                 <div className="bg-gray-50 border-t border-gray-100">
