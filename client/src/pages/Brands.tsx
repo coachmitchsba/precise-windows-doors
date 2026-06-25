@@ -70,7 +70,7 @@ export default function Brands() {
 
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[380px] max-h-[500px] overflow-hidden">
-        <img src={CDN.hero2} alt="Top window and door brands" className="w-full h-full object-cover" />
+        <img src="/images/view-through-an-open-window-to-swimming-pool-gardens-and-sunset-over-atlantic-ocean-beyond.jpg" alt="Stunning floor-to-ceiling windows with pool view" className="w-full h-full object-cover object-center" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
         <div className="relative z-10 h-full flex items-center">
           <div className="container">
