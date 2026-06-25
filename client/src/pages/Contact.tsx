@@ -34,7 +34,7 @@ export default function Contact() {
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
               Contact Us
             </h1>
-            <p className="text-blue-100 text-xl max-w-2xl">
+            <p className="text-blue-100 text-sm sm:text-base md:text-lg max-w-2xl">
               Ready to transform your home? Reach out for a free in-home estimate. We're here to help!
             </p>
           </RevealSection>

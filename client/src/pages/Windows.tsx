@@ -105,7 +105,7 @@ export default function Windows() {
                 <ChevronRight size={14} />
                 <span className="text-white">Windows</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Window Replacement & Installation
               </h1>
               <p className="text-lg text-white/85 mb-8">

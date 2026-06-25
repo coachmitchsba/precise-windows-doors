@@ -84,7 +84,7 @@ export default function Gallery() {
         <div className="relative z-10 h-full flex items-center">
           <div className="container">
             <div className="max-w-2xl">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Our Work Gallery
               </h1>
               <p className="text-lg text-white/85">

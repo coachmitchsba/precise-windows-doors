@@ -49,7 +49,7 @@ const services = [
   {
     title: "Door Installation",
     desc: "Entry doors, patio doors, storm doors, French doors, sliding glass doors.",
-    image: CDN.fixWindowsDoors,
+    image: CDN.luxuryEntryDoor,
     href: "/services/",
   },
   {
@@ -195,7 +195,7 @@ const productCategories = [
     label: "Doors",
     icon: "🚪",
     items: [
-      { name: "Entry Doors", desc: "Make a stunning first impression with our premium entry doors.", img: CDN.fixWindowsDoors },
+      { name: "Entry Doors", desc: "Make a stunning first impression with our premium entry doors.", img: CDN.luxuryEntryDoor },
       { name: "Patio Doors", desc: "Connect indoor & outdoor spaces with beautiful patio doors.", img: CDN.gallery2 },
       { name: "Sliding Glass", desc: "Elegant space-saving doors that bring the outdoors in.", img: CDN.slidingGlassDoor },
       { name: "French Doors", desc: "Classic double doors with glass panels — timeless elegance.", img: CDN.glassPatioDooors },
@@ -401,9 +401,10 @@ export default function Home() {
 
               {/* Heading */}
               <h1
-                className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6"
+                className="text-[1.45rem] sm:text-3xl md:text-5xl font-bold text-white mb-4"
                 style={{
                   fontFamily: "'Playfair Display', serif",
+                  lineHeight: 1.2,
                   opacity: isTransitioning ? 0 : 1,
                   transform: isTransitioning ? "translateX(-20px)" : "translateX(0)",
                   transition: "all 0.6s cubic-bezier(0.23,1,0.32,1) 0.15s",
@@ -415,7 +416,7 @@ export default function Home() {
 
               {/* Subtext */}
               <p
-                className="text-lg md:text-xl text-white/85 mb-8 leading-relaxed"
+                className="text-sm sm:text-base md:text-lg text-white/85 mb-6 leading-relaxed max-w-lg"
                 style={{
                   opacity: isTransitioning ? 0 : 1,
                   transform: isTransitioning ? "translateX(-15px)" : "translateX(0)",

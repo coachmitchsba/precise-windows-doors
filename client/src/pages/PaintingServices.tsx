@@ -87,7 +87,7 @@ export default function PaintingServices() {
                 <ChevronRight size={14} />
                 <span className="text-white">Painting</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Interior Painting Services
               </h1>
               <p className="text-lg text-white/85 mb-8">

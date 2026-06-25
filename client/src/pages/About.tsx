@@ -54,7 +54,7 @@ export default function About() {
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
               About Precise Windows &amp; Doors
             </h1>
-            <p className="text-blue-100 text-xl max-w-2xl">
+            <p className="text-blue-100 text-sm sm:text-base md:text-lg max-w-2xl">
               Trusted experts in window and door installation since 1994. Serving the New York area with pride.
             </p>
           </RevealSection>

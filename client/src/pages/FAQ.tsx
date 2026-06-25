@@ -148,7 +148,7 @@ export default function FAQ() {
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
               Frequently Asked Questions
             </h1>
-            <p className="text-blue-100 text-xl max-w-2xl">
+            <p className="text-blue-100 text-sm sm:text-base md:text-lg max-w-2xl">
               Everything you need to know about our window and door services. Can't find your answer? Call us!
             </p>
             <a href={PHONE_HREF} className="btn-gold mt-8 inline-flex">

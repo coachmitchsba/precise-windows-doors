@@ -63,10 +63,10 @@ export default function Services() {
         <div className="container relative z-10">
           <RevealSection>
             <span className="section-label" style={{ color: "#C9A84C" }}>What We Offer</span>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
               Window &amp; Door Services
             </h1>
-            <p className="text-blue-100 text-xl max-w-2xl">
+            <p className="text-blue-100 text-sm sm:text-base md:text-lg max-w-2xl">
               Expert installation, replacement, and repair services in Mt. Vernon, NY and the greater New York area since 1994.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
@@ -115,7 +115,7 @@ export default function Services() {
           {/* Doors */}
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
             <RevealSection delay={150} className="lg:order-2">
-              <img src={CDN.fixWindowsDoors} alt="Premium door installation" className="w-full h-[460px] object-cover rounded-2xl shadow-xl" />
+              <img src={CDN.luxuryEntryDoor} alt="Premium door installation" className="w-full h-[460px] object-cover rounded-2xl shadow-xl" />
             </RevealSection>
             <RevealSection className="lg:order-1">
               <span className="section-label">Doors</span>

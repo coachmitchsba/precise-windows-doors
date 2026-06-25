@@ -45,7 +45,7 @@ export default function Careers() {
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
               Careers at Precise Windows &amp; Doors
             </h1>
-            <p className="text-blue-100 text-xl max-w-2xl">
+            <p className="text-blue-100 text-sm sm:text-base md:text-lg max-w-2xl">
               Be part of New York's most trusted window and door installation team. We're always looking for skilled, dedicated professionals.
             </p>
           </RevealSection>
