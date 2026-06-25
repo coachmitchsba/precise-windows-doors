@@ -25,7 +25,7 @@ const heroSlides = [
     sub: "Energy-efficient windows that reduce bills and elevate your home's beauty.",
   },
   {
-    image: CDN.workman,
+    image: CDN.womanPanoramicWindows,
     label: "Expert Installation",
     heading: "Precision You Can See.\nQuality You Can Trust.",
     sub: "Over 30 years of expert craftsmanship in the New York area.",
@@ -496,10 +496,7 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Slide counter */}
-        <div className="absolute bottom-8 right-8 z-20 text-white/60 text-sm font-medium">
-          {String(currentSlide + 1).padStart(2, "0")} / {String(heroSlides.length).padStart(2, "0")}
-        </div>
+
       </section>
 
       {/* ══════════════════════════════════════════
