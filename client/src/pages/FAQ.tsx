@@ -26,7 +26,7 @@ const faqs = [
       },
       {
         q: "What areas do you serve?",
-        a: "We serve Yonkers, Mt. Vernon, the Bronx, Westchester County, and the greater New York metropolitan area. Contact us to confirm service in your specific location.",
+        a: "We serve Mt. Vernon, the Bronx, Westchester County, and the greater New York metropolitan area. Contact us to confirm service in your specific location.",
       },
       {
         q: "Are you licensed and insured?",

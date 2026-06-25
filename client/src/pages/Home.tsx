@@ -64,7 +64,7 @@ const services = [
 const testimonials = [
   {
     name: "Dave Roberts",
-    location: "Yonkers, NY",
+    location: "Mt. Vernon, NY",
     rating: 5,
     text: "Precise Windows & Doors did an amazing job replacing all 12 windows in our home. The team was professional, clean, and finished ahead of schedule. Our energy bills dropped significantly!",
     image: CDN.testimonial1,
@@ -184,8 +184,8 @@ const productCategories = [
     items: [
       { name: "Double-Hung", desc: "Both sashes open for max ventilation & easy cleaning.", img: CDN.gallery1 },
       { name: "Casement", desc: "Hinged at side, opens outward for excellent airflow.", img: CDN.gallery2 },
-      { name: "Bay & Bow", desc: "Projects outward, creating stunning architectural features.", img: CDN.gallery3 },
-      { name: "Sliding", desc: "Glides horizontally — sleek, modern, and easy to use.", img: CDN.gallery4 },
+      { name: "Bay & Bow", desc: "Projects outward, creating stunning architectural features.", img: CDN.womanPanoramicWindows },
+      { name: "Sliding", desc: "Glides horizontally — sleek, modern, and easy to use.", img: CDN.youngWoman },
       { name: "Picture", desc: "Fixed windows that frame stunning views & flood rooms with light.", img: CDN.sunriseWindow },
       { name: "Awning", desc: "Opens outward from top — perfect for ventilation in light rain.", img: CDN.poolView },
     ],
@@ -197,8 +197,8 @@ const productCategories = [
     items: [
       { name: "Entry Doors", desc: "Make a stunning first impression with our premium entry doors.", img: CDN.fixWindowsDoors },
       { name: "Patio Doors", desc: "Connect indoor & outdoor spaces with beautiful patio doors.", img: CDN.gallery2 },
-      { name: "Sliding Glass", desc: "Elegant space-saving doors that bring the outdoors in.", img: CDN.gallery3 },
-      { name: "French Doors", desc: "Classic double doors with glass panels — timeless elegance.", img: CDN.gallery4 },
+      { name: "Sliding Glass", desc: "Elegant space-saving doors that bring the outdoors in.", img: CDN.slidingGlassDoor },
+      { name: "French Doors", desc: "Classic double doors with glass panels — timeless elegance.", img: CDN.glassPatioDooors },
       { name: "Storm Doors", desc: "Extra protection and energy efficiency for any exterior door.", img: CDN.gallery1 },
       { name: "Barn Doors", desc: "Rustic-modern sliding doors that make a bold design statement.", img: CDN.sunriseWindow },
     ],
@@ -401,7 +401,7 @@ export default function Home() {
 
               {/* Heading */}
               <h1
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
+                className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6"
                 style={{
                   fontFamily: "'Playfair Display', serif",
                   opacity: isTransitioning ? 0 : 1,
@@ -509,7 +509,7 @@ export default function Home() {
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
             {[
               { icon: <Shield size={16} />, text: "Licensed & Insured" },
-              { icon: <Award size={16} />, text: "#1 Rated in Yonkers" },
+              { icon: <Award size={16} />, text: "#1 Rated in Mt. Vernon" },
               { icon: <Clock size={16} />, text: "Since 1994" },
               { icon: <Zap size={16} />, text: "Free In-Home Estimates" },
               { icon: <CheckCircle size={16} />, text: "100% Satisfaction" },
@@ -683,9 +683,9 @@ export default function Home() {
             {[
               { src: CDN.gallery1, span: "col-span-2 row-span-2", h: "h-80" },
               { src: CDN.gallery2, span: "", h: "h-36" },
-              { src: CDN.gallery3, span: "", h: "h-36" },
-              { src: CDN.gallery4, span: "", h: "h-36" },
-              { src: CDN.window, span: "", h: "h-36" },
+              { src: CDN.womanWindow, span: "", h: "h-36" },
+              { src: CDN.poolView, span: "", h: "h-36" },
+              { src: CDN.girlWindow, span: "", h: "h-36" },
               { src: CDN.sunriseWindow, span: "col-span-2", h: "h-48" },
               { src: CDN.youngWoman, span: "", h: "h-48" },
               { src: CDN.womanReading, span: "", h: "h-48" },
@@ -832,7 +832,7 @@ export default function Home() {
                 <img
                   src={brand.img}
                   alt={brand.name}
-                  className="h-10 md:h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+                  className="h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
                 />
               </RevealSection>
             ))}

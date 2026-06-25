@@ -131,7 +131,7 @@ export default function Contact() {
             <h2 className="text-2xl font-bold text-[#1B3A5C]" style={{ fontFamily: "'Playfair Display', serif" }}>
               Find Us in Mt. Vernon, NY
             </h2>
-            <p className="text-gray-600 mt-2">Serving Yonkers, Mt. Vernon, Bronx, and all of Westchester County</p>
+            <p className="text-gray-600 mt-2">Serving Mt. Vernon, Bronx, and all of Westchester County</p>
           </RevealSection>
           <RevealSection>
             <div className="rounded-2xl overflow-hidden shadow-xl h-80">

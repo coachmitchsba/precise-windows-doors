@@ -63,11 +63,11 @@ export default function Services() {
         <div className="container relative z-10">
           <RevealSection>
             <span className="section-label" style={{ color: "#C9A84C" }}>What We Offer</span>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
               Window &amp; Door Services
             </h1>
             <p className="text-blue-100 text-xl max-w-2xl">
-              Expert installation, replacement, and repair services in Yonkers, NY and the greater New York area since 1994.
+              Expert installation, replacement, and repair services in Mt. Vernon, NY and the greater New York area since 1994.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <a href={PHONE_HREF} className="btn-gold">
@@ -211,7 +211,7 @@ export default function Services() {
         </div>
       </section>
 
-      <PhoneCTABanner heading="Expert Installations. Guaranteed Satisfaction." subtext="Call us today for a free in-home estimate. We serve Yonkers, Mt. Vernon, Bronx, and all of the New York area." />
+      <PhoneCTABanner heading="Expert Installations. Guaranteed Satisfaction." subtext="Call us today for a free in-home estimate. We serve Mt. Vernon, Bronx, and all of the New York area." />
       <Footer />
     </div>
   );
