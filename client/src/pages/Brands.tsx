@@ -139,7 +139,7 @@ export default function Brands() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href={PHONE_HREF} className="btn-gold text-lg px-8 py-4 inline-flex">
-                <Phone size={18} /> Call {PHONE}
+                <Phone size={16} /> <span className="whitespace-nowrap">{PHONE}</span>
               </a>
               <Link href="/contact/" className="btn-outline-navy border-white text-white hover:bg-white hover:text-[#1B3A5C] px-8 py-4">
                 Free Estimate <ArrowRight size={14} />

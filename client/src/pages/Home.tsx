@@ -437,7 +437,7 @@ export default function Home() {
               >
                 <a href={PHONE_HREF} className="btn-gold text-base px-8 py-4">
                   <Phone size={18} />
-                  Call {PHONE}
+                  <span className="whitespace-nowrap">{PHONE}</span>
                 </a>
                 <Link href="/contact/" className="btn-outline-navy border-white text-white hover:bg-white hover:text-[#1B3A5C] px-8 py-4">
                   Free Estimate
@@ -549,7 +549,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href={PHONE_HREF} className="btn-primary">
                   <Phone size={16} />
-                  Call {PHONE}
+                  <span className="whitespace-nowrap">{PHONE}</span>
                 </a>
                 <Link href="/about-precise/" className="btn-outline-navy">
                   Our Story
@@ -769,7 +769,7 @@ export default function Home() {
               <div className="mt-8">
                 <a href={PHONE_HREF} className="btn-primary">
                   <Phone size={16} />
-                  Call {PHONE}
+                  <span className="whitespace-nowrap">{PHONE}</span>
                 </a>
               </div>
             </RevealSection>

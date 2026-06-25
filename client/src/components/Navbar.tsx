@@ -239,7 +239,7 @@ export default function Navbar() {
           <div className="p-5 space-y-3 border-t border-gray-100">
             <a href={PHONE_HREF} className="btn-gold w-full justify-center text-center flex py-4 items-center gap-2">
               <Phone size={16} />
-              Call {PHONE}
+              <span className="whitespace-nowrap">{PHONE}</span>
             </a>
             <Link href="/contact/" className="btn-outline-navy w-full justify-center text-center flex py-3.5">
               Get Free Estimate

@@ -73,7 +73,7 @@ export default function VinylSiding() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href={PHONE_HREF} className="btn-gold">
-                  <Phone size={16} /> Call {PHONE}
+                  <Phone size={16} /> <span className="whitespace-nowrap">{PHONE}</span>
                 </a>
                 <Link href="/contact/" className="btn-outline-navy border-white text-white hover:bg-white hover:text-[#1B3A5C]">
                   Free Estimate <ArrowRight size={14} />
@@ -146,7 +146,7 @@ export default function VinylSiding() {
                 Our siding experts will assess your home, recommend the best options, and provide a transparent quote with no pressure.
               </p>
               <a href={PHONE_HREF} className="btn-gold text-lg px-8 py-4 inline-flex mb-6">
-                <Phone size={18} /> Call {PHONE}
+                <Phone size={16} /> <span className="whitespace-nowrap">{PHONE}</span>
               </a>
             </RevealSection>
             <RevealSection delay={150}>

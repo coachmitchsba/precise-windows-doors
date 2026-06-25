@@ -155,7 +155,7 @@ export default function Gallery() {
               Call us today for a free in-home estimate. Let us bring this quality to your home.
             </p>
             <a href={PHONE_HREF} className="btn-gold text-lg px-8 py-4 inline-flex">
-              <Phone size={18} /> Call {PHONE}
+              <Phone size={16} /> <span className="whitespace-nowrap">{PHONE}</span>
             </a>
           </RevealSection>
         </div>

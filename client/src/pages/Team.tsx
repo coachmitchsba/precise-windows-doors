@@ -92,7 +92,7 @@ export default function Team() {
               </p>
               <div className="flex gap-4">
                 <a href={PHONE_HREF} className="btn-gold">
-                  <Phone size={16} /> Call {PHONE}
+                  <Phone size={16} /> <span className="whitespace-nowrap">{PHONE}</span>
                 </a>
                 <Link href="/contact/" className="btn-outline-navy">
                   Free Estimate <ArrowRight size={14} />

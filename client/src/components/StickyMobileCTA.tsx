@@ -28,7 +28,7 @@ export default function StickyMobileCTA() {
           style={{ background: "#C9A84C" }}
         >
           <Phone size={18} />
-          <span>Call {PHONE}</span>
+          <span className="whitespace-nowrap">{PHONE}</span>
         </a>
         <Link
           href="/contact/"
