@@ -13,19 +13,19 @@ import { PHONE, PHONE_HREF, CDN } from "@/lib/constants";
 // Hero slides
 const heroSlides = [
   {
-    image: CDN.hero1,
-    label: "Window Replacement",
-    heading: "Transform Your Home\nWith Stunning Windows",
-    sub: "New York's #1 rated window installation experts since 1994. Free in-home estimates.",
-  },
-  {
     image: CDN.poolView,
     label: "Premium Views",
     heading: "Let the Light In.\nLive Beautifully.",
     sub: "Energy-efficient windows that reduce bills and elevate your home's beauty.",
   },
   {
-    image: CDN.womanPanoramicWindows,
+    image: CDN.hero1,
+    label: "Window Replacement",
+    heading: "Transform Your Home\nWith Stunning Windows",
+    sub: "New York's #1 rated window installation experts since 1994. Free in-home estimates.",
+  },
+  {
+    image: "/images/bright-modern-windows-interior.jpg",
     label: "Expert Installation",
     heading: "Precision You Can See.\nQuality You Can Trust.",
     sub: "Over 30 years of expert craftsmanship in the New York area.",
